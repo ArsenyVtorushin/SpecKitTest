@@ -30,6 +30,41 @@ public class GreetingEndpointTests : IClassFixture<WebApplicationFactory<Program
         Assert.Equal(expectedName, json.RootElement.GetProperty("name").GetString());
     }
 
+    [Theory]
+    [InlineData("""{"name":""}""")]
+    [InlineData("""{"name":"   "}""")]
+    [InlineData("""{}""")]
+    public async Task PostGreeting_MissingOrBlankName_ReturnsEnterNameError(string body)
+    {
+        var response = await PostJsonAsync(body);
+
+        await AssertBadRequestWithErrorAsync(response, "Please enter your name.");
+    }
+
+    [Fact]
+    public async Task PostGreeting_NameTooLong_ReturnsTooLongError()
+    {
+        var response = await PostJsonAsync(JsonSerializer.Serialize(new { name = new string('a', 101) }));
+
+        await AssertBadRequestWithErrorAsync(response, "Name must be 100 characters or fewer.");
+    }
+
+    [Fact]
+    public async Task PostGreeting_InvalidJson_ReturnsBadRequest()
+    {
+        var response = await PostJsonAsync("not json");
+
+        Assert.Equal(HttpStatusCode.BadRequest, response.StatusCode);
+    }
+
+    private static async Task AssertBadRequestWithErrorAsync(HttpResponseMessage response, string expectedError)
+    {
+        Assert.Equal(HttpStatusCode.BadRequest, response.StatusCode);
+
+        using var json = JsonDocument.Parse(await response.Content.ReadAsStringAsync());
+        Assert.Equal(expectedError, json.RootElement.GetProperty("error").GetString());
+    }
+
     private Task<HttpResponseMessage> PostJsonAsync(string body)
     {
         var content = new StringContent(body, Encoding.UTF8, "application/json");
