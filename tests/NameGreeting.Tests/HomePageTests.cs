@@ -25,4 +25,13 @@ public class HomePageTests : IClassFixture<WebApplicationFactory<Program>>
         Assert.Contains("id=\"submit-button\"", body);
         Assert.Contains("aria-live=\"polite\"", body);
     }
+
+    [Fact]
+    public async Task GetAppJs_ReturnsJavaScript()
+    {
+        var response = await _client.GetAsync("/app.js");
+
+        Assert.Equal(System.Net.HttpStatusCode.OK, response.StatusCode);
+        Assert.Contains("javascript", response.Content.Headers.ContentType?.MediaType);
+    }
 }
