@@ -102,9 +102,9 @@ server and submit "Ada" → retrieval error shown and "Ada" remains in the input
 
 ## Phase 5: Polish & Cross-Cutting Concerns
 
-- [ ] T020 [P] Create `README.md` at the repository root: one-paragraph description, prerequisites, and the `dotnet test` / `dotnet run --project src/NameGreeting` commands, linking to `specs/001-name-greeting/quickstart.md`
-- [ ] T021 Review `src/NameGreeting/Program.cs`, `src/NameGreeting/NameValidator.cs`, and `src/NameGreeting/wwwroot/app.js` for Constitution III: descriptive names, short functions, "why" comments only, no unused code; confirm no code logs submitted names (FR-011, research.md R8)
-- [ ] T022 Run full quickstart.md validation: `dotnet test` passes and all 10 manual checklist rows behave as expected
+- [X] T020 [P] Create `README.md` at the repository root: one-paragraph description, prerequisites, and the `dotnet test` / `dotnet run --project src/NameGreeting` commands, linking to `specs/001-name-greeting/quickstart.md`
+- [X] T021 Review `src/NameGreeting/Program.cs`, `src/NameGreeting/NameValidator.cs`, and `src/NameGreeting/wwwroot/app.js` for Constitution III: descriptive names, short functions, "why" comments only, no unused code; confirm no code logs submitted names (FR-011, research.md R8)
+- [X] T022 Run full quickstart.md validation: `dotnet test` passes and all 10 manual checklist rows behave as expected
 
 ---
 
