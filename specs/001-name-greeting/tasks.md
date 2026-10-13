@@ -28,9 +28,9 @@ independently.
 
 **Purpose**: Create the solution and the two projects described in plan.md → Project Structure
 
-- [ ] T001 Create `src/NameGreeting/NameGreeting.csproj` using `Sdk="Microsoft.NET.Sdk.Web"` with `TargetFramework` `net8.0`, `Nullable` `enable`, `ImplicitUsings` `enable`, and **no** `PackageReference` items; create `NameGreeting.sln` at the repository root and add the project to it
-- [ ] T002 Create `tests/NameGreeting.Tests/NameGreeting.Tests.csproj` (`Sdk="Microsoft.NET.Sdk"`, `net8.0`, `Nullable` `enable`, `ImplicitUsings` `enable`, `IsPackable` `false`) with package references `Microsoft.NET.Test.Sdk`, `xunit`, `xunit.runner.visualstudio`, `Microsoft.AspNetCore.Mvc.Testing` (8.0.x), a global `using Xunit;`, and a `ProjectReference` to `src/NameGreeting/NameGreeting.csproj`; do NOT include `coverlet.collector`; add the project to `NameGreeting.sln`
-- [ ] T003 [P] Create `.gitignore` at the repository root ignoring `bin/`, `obj/`, `.vs/`, `*.user`, `TestResults/`
+- [X] T001 Create `src/NameGreeting/NameGreeting.csproj` using `Sdk="Microsoft.NET.Sdk.Web"` with `TargetFramework` `net8.0`, `Nullable` `enable`, `ImplicitUsings` `enable`, and **no** `PackageReference` items; create `NameGreeting.sln` at the repository root and add the project to it
+- [X] T002 Create `tests/NameGreeting.Tests/NameGreeting.Tests.csproj` (`Sdk="Microsoft.NET.Sdk"`, `net8.0`, `Nullable` `enable`, `ImplicitUsings` `enable`, `IsPackable` `false`) with package references `Microsoft.NET.Test.Sdk`, `xunit`, `xunit.runner.visualstudio`, `Microsoft.AspNetCore.Mvc.Testing` (8.0.x), a global `using Xunit;`, and a `ProjectReference` to `src/NameGreeting/NameGreeting.csproj`; do NOT include `coverlet.collector`; add the project to `NameGreeting.sln`
+- [X] T003 [P] Create `.gitignore` at the repository root ignoring `bin/`, `obj/`, `.vs/`, `*.user`, `TestResults/`
 
 ---
 
